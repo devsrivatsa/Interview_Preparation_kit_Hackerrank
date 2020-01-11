@@ -1,0 +1,14 @@
+# Complete the stepPerms function below.
+def stepPerms(n):
+    def _stepPerms(n, ways):
+        for step in [1,2,3]:
+            balance = n - step
+            if(balance<0):
+                continue
+            elif(balance==0):
+                ways+=1
+            else:
+                ways = _stepPerms(balance, ways)
+        return ways
+    # Execute the function
+    return _stepPerms(n, 0)
